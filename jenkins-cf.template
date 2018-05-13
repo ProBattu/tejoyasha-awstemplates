@@ -1,5 +1,5 @@
 {
-    "Description": "Effective DevOps in AWS: HelloWorld web application",
+    "Description": "Ansible on AWS: Jenkins web application",
     "Outputs": {
         "InstancePublicIp": {
             "Description": "Public IP of our instance.",
@@ -74,7 +74,7 @@
                 "GroupDescription": "Allow SSH and TCP/8080 access",
                 "SecurityGroupIngress": [
                     {
-                        "CidrIp": "183.82.218.135/32",
+                        "CidrIp": "183.82.220.67/32",
                         "FromPort": "22",
                         "IpProtocol": "tcp",
                         "ToPort": "22"
@@ -111,6 +111,7 @@
                             [
                                 "#!/bin/bash",
                                 "yum install --enablerepo=epel -y git",
+                                "pip install ansible",
                                 "/usr/local/bin/ansible-pull -U https://github.com/tejoyasha/ansible --checkout=jenkins jenkins.yml -i localhost"
                             ]
                         ]
